@@ -351,9 +351,17 @@ app.post('/api/proxy', (req, res) => {
     });
 });
 
-server.listen(PORT, () => {
-    console.log(`⚡ Ultraviolet-style Proxy running on http://localhost:${PORT}`);
-    console.log(`🔒 CORS bypassed via path-based routing`);
-    console.log(`🎯 All resources proxied through /~/ path`);
-    console.log(`💉 JavaScript injection for dynamic content`);
-});
+// For Vercel deployment
+if (process.env.VERCEL) {
+    module.exports = app;
+} else {
+    server.listen(PORT, () => {
+        console.log(`⚡ Ultraviolet-style Proxy running on http://localhost:${PORT}`);
+        console.log(`🔒 CORS bypassed via path-based routing`);
+        console.log(`🎯 All resources proxied through /~/ path`);
+        console.log(`💉 JavaScript injection for dynamic content`);
+    });
+}
+
+// Export for Vercel
+module.exports = app;
