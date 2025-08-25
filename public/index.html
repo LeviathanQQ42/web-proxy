@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Proxy</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Web Proxy</h1>
+            <p>Access any website through our proxy server</p>
+        </div>
+        
+        <div class="input-section">
+            <input 
+                type="text" 
+                id="urlInput" 
+                placeholder="Enter URL (e.g., example.com or https://example.com)" 
+                autocomplete="off"
+            />
+            <div class="button-group">
+                <button id="openDirectBtn" class="btn btn-primary">
+                    Open Direct
+                </button>
+                <button id="openProxyBtn" class="btn btn-secondary">
+                    Open in Proxy Frame
+                </button>
+            </div>
+        </div>
+        
+        <div id="errorMessage" class="error-message"></div>
+        
+        <div id="proxyFrame" class="proxy-frame hidden">
+            <div class="frame-header">
+                <span id="currentUrl"></span>
+                <button id="closeFrameBtn" class="close-btn">Close</button>
+            </div>
+            <iframe id="proxyIframe" src=""></iframe>
+        </div>
+        
+        <div class="features">
+            <h3>Features:</h3>
+            <ul>
+                <li>Bypass content restrictions</li>
+                <li>Anonymous browsing</li>
+                <li>No installation required</li>
+                <li>Fast and secure</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
